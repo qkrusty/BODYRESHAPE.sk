@@ -1,0 +1,330 @@
+/* ============================================================
+   NUTRIADAPT — objednávkový formulár
+   Prispôsobenie vzhľadu formulára (leads.nutriadapt.com) dizajnu
+   landing page bodyreshape.sk. Formulár beží v iframe a tento
+   súbor mu podsúvame cez parameter data-cssFile.
+
+   Formulár stojí na Bootstrape 5, takže prepisujeme jeho triedy
+   (.form-control, .btn-primary, …) aj jeho CSS premenné (--bs-*).
+   Rovnaká štruktúra ako form.css pre liftingtvare.sk, len v
+   šalviovej palete bodyreshape.sk.
+   ============================================================ */
+
+:root{
+  --na-cream:#FAF6EE;
+  --na-shell:#FFFFFF;
+  --na-sand:#F2F5EC;
+  --na-sand-2:#E9EEE0;
+  --na-accent:#5F7248;
+  --na-accent-ink:#4A5A37;
+  --na-btn-hi:#6C8152;
+  --na-btn:#5F7248;
+  --na-ink:#242D1C;
+  --na-ink-soft:#47523C;
+  --na-line:#DDE3D2;
+  --na-line-hover:#C5D0B5;
+  --na-err:#A83C22;
+  --na-sans:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- základ ---------- */
+body,
+.order-form,
+.order-form input,
+.order-form select,
+.order-form textarea,
+.order-form button,
+.order-form label,
+.order-form a{
+  font-family: var(--na-sans);
+  color: var(--na-ink);
+}
+body{ background: transparent; }
+.order-form{ font-size: 16px; line-height: 1.55; }
+
+/* ---------- popisky ---------- */
+.order-form .form-label{
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--na-ink);
+  margin-bottom: 6px;
+  letter-spacing: .01em;
+}
+.order-form .form-label i,
+.order-form .fas{ color: var(--na-accent); }
+
+/* ---------- polia ---------- */
+.order-form .mb-3{ margin-bottom: 16px !important; }
+
+.order-form .form-control,
+.order-form .form-select{
+  min-height: 52px;               /* pohodlné na dotyk */
+  padding: 12px 14px;
+  font-size: 16px;                /* menej ako 16px = iPhone pri kliknutí priblíži stránku */
+  color: var(--na-ink);
+  background-color: var(--na-shell);
+  border: 1px solid var(--na-line);
+  border-radius: 12px;
+  box-shadow: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.order-form .form-control::placeholder{ color:#8E9683; }
+.order-form .form-control,
+.order-form textarea{ caret-color: var(--na-ink); }
+
+.order-form .form-control:hover,
+.order-form .form-select:hover{ border-color: var(--na-line-hover); }
+
+.order-form .form-control:focus,
+.order-form .form-select:focus{
+  border-color: var(--na-accent) !important;
+  box-shadow: 0 0 0 3px rgba(95,114,72,.22) !important;
+  outline: none;
+}
+
+.order-form textarea.form-control{ min-height: 96px; }
+
+/* telefón: predvoľba + číslo vedľa seba */
+.order-form .input-group .form-select.form-countryCode{
+  max-width: 108px;
+  border-radius: 12px 0 0 12px;
+  border-right: 0;
+}
+.order-form .input-group .form-control.form-nationalNumber{
+  border-radius: 0 12px 12px 0;
+}
+
+/* e-mail so zavináčovým tlačidlom */
+.order-form .btn-group-email .form-control{
+  border-radius: 12px 0 0 12px;
+}
+.order-form .btn-group-email .btn,
+.order-form .btn-light{
+  min-height: 52px;
+  background: var(--na-sand);
+  border: 1px solid var(--na-line);
+  border-left: 0;
+  border-radius: 0 12px 12px 0;
+  color: var(--na-accent-ink);
+  font-weight: 700;
+}
+.order-form .btn-group-email .btn:hover,
+.order-form .btn-light:hover{ background: var(--na-sand-2); }
+
+/* ---------- výber kliniky ---------- */
+.order-form .accordion{
+  /* šípka rozbaľovača v šalviovej farbe namiesto modrej */
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%235F7248' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%234A5A37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 3px rgba(95,114,72,.22);
+}
+.order-form .buttonSelectBranch,
+.order-form .accordion-button{
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 12px 14px;
+  background: var(--na-shell);
+  border: 1px solid var(--na-line);
+  border-radius: 12px;
+  color: var(--na-ink);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: none;
+  transition: border-color .15s ease, background .15s ease;
+}
+.order-form .buttonSelectBranch:hover,
+.order-form .accordion-button:hover{
+  border-color: var(--na-accent);
+  background: var(--na-cream);
+}
+.order-form .accordion-button:not(.collapsed){
+  background: var(--na-sand);
+  border-color: var(--na-accent);
+  color: var(--na-ink);
+  box-shadow: none;
+}
+/* šípka aj pre staršie verzie Bootstrapu (bez CSS premenných) */
+.order-form .accordion-button::after{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%235F7248' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 5l6 6 6-6'/%3E%3C/svg%3E") !important;
+}
+.order-form .accordion-button:not(.collapsed)::after{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%234A5A37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 5l6 6 6-6'/%3E%3C/svg%3E") !important;
+}
+.order-form .accordion-button:focus{ box-shadow: 0 0 0 3px rgba(95,114,72,.22); border-color: var(--na-accent); }
+
+.order-form .column_tabs{
+  border: 1px solid var(--na-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--na-shell);
+}
+.order-form .tab_button{
+  min-height: 40px;
+  padding: 7px 10px;
+  font-size: 13.5px;
+  line-height: 1.3;
+  text-align: center;
+  justify-content: center;
+  background: var(--na-sand);
+  border-bottom: 1px solid var(--na-line);
+  color: var(--na-ink);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+.order-form .tab_button:hover{ background: var(--na-sand-2); }
+.order-form .tab_button.active{
+  background: var(--na-sand-2);
+  color: var(--na-accent-ink);
+}
+/* pozor: .tab_item má spodný padding kvôli absolútne umiestnenému
+   tlačidlu "Vybrať" — nepretĺkame ho */
+.order-form .tab_item{
+  border-bottom: 1px solid var(--na-line);
+  transition: background .15s ease;
+}
+.order-form .tab_item:last-child{ border-bottom: 0; }
+.order-form .tab_item-branch{
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--na-ink-soft);
+  padding: 8px 10px 0;
+}
+.order-form .tab_item-branch strong{
+  display: block;
+  font-size: 15.5px;
+  color: var(--na-ink);
+  font-weight: 700;
+}
+.order-form .btn-footer{ right: 10px; }
+.order-form .tab_item:hover{ background: var(--na-cream); }
+.order-form .tab_item-title{ font-weight: 600; color: var(--na-ink); }
+
+/* ---------- cena / výber balíka ---------- */
+.order-form .form-inclusion label.active,
+.order-form .form-inclusion label{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--na-sand);
+  border: 1px solid var(--na-line);
+  border-radius: 12px;
+}
+.order-form .form-inclusion b{
+  color: var(--na-accent-ink);
+  font-size: 18px;
+}
+
+/* ---------- checkboxy ---------- */
+.order-form input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+  accent-color: var(--na-accent);
+  cursor: pointer;
+}
+.order-form .column_full-label{
+  font-size: 14px;
+  color: var(--na-ink-soft);
+  line-height: 1.5;
+}
+.order-form .column_full-label a{
+  color: var(--na-accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------- tlačidlá ---------- */
+.order-form .btn-primary,
+.order-form .btn.btn-primary{
+  /* farby pre všetky primárne tlačidlá */
+  --bs-btn-bg: var(--na-btn);
+  --bs-btn-border-color: var(--na-btn);
+  --bs-btn-hover-bg: var(--na-btn-hi);
+  --bs-btn-hover-border-color: var(--na-btn-hi);
+  --bs-btn-active-bg: var(--na-btn);
+  --bs-btn-active-border-color: var(--na-btn);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+
+  background: linear-gradient(180deg, var(--na-btn-hi), var(--na-btn));
+  border: 0;
+  color: #fff;
+  font-weight: 700;
+  transition: filter .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.order-form .btn-primary:hover{ filter: brightness(1.08); }
+.order-form .btn-primary:active{ transform: translateY(1px); }
+.order-form .btn-primary:focus-visible{
+  outline: 3px solid #B8862B;
+  outline-offset: 2px;
+}
+
+/* malé tlačidlo "Vybrať" v zozname pobočiek — musí ostať malé,
+   inak prekryje adresu pod názvom mesta */
+.order-form .btn-footer .btn-primary,
+.order-form .btn-primary.btn-sm{
+  width: auto;
+  min-height: 0;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+/* finálne odoslanie objednávky — rovnaké ako hlavné tlačidlá na stránke */
+.order-form .order-form_submit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 58px;
+  padding: 14px 20px;
+  border-radius: 100px;
+  font-size: 15.5px;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px -10px rgba(74,90,55,.75);
+}
+.order-form .order-form_submit:hover{
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 30px -14px rgba(74,90,55,.95);
+}
+
+/* spinner v tlačidle */
+.order-form .button-spinner{ color: #fff; }
+
+/* ---------- chyby ---------- */
+.order-form .invalid-feedback,
+.order-form .help-block,
+.order-form .text-danger,
+.order-form .branch_message{
+  color: var(--na-err) !important;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+.order-form .form-control.is-invalid,
+.order-form .form-select.is-invalid{
+  border-color: var(--na-err) !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+/* ---------- podmienky v modálnom okne ---------- */
+#terms_modal{
+  font-size: 14px;
+  color: var(--na-ink-soft);
+  line-height: 1.6;
+}
+
+/* ---------- skryté polia ---------- */
+/* Promo kód sa na tejto landing page nepoužíva. */
+.order-form .mb-3:has(input[name="promoCode"]),
+.order-form .mb-3:has(.fa-percent){ display: none !important; }
