@@ -15,6 +15,18 @@
 <meta property="og:image" content="img/pred-po-1.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%235F7248'/%3E%3Cpath d='M11.3 6.6C13.9 11 14.1 14.2 12.7 17.2C11.3 20.2 10.1 23.2 11.5 26.4M20.7 6.6C18.1 11 17.9 14.2 19.3 17.2C20.7 20.2 21.9 23.2 20.5 26.4' fill='none' stroke='%23FAF6EE' stroke-width='2.3' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16.2' r='1.5' fill='%23E2C57A'/%3E%3C/svg%3E">
 
+<!-- Meta Pixel + Google Analytics (rovnaké ID ako bezcelulitidy.sk) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','274221444734668');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=274221444734668&ev=PageView&noscript=1"></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L9PT59B6FP"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-L9PT59B6FP');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
@@ -179,16 +191,18 @@ section{padding:clamp(54px,9vw,104px) 0; position:relative}
 .tag:hover b,.tag.is-on b{background:var(--sage); color:#fff; border-color:var(--sage); transform:scale(1.08);
   box-shadow:0 14px 30px rgba(95,114,72,.36)}
 .tag:hover::before,.tag.is-on::before{background:#fff; opacity:1; box-shadow:0 0 0 3px var(--sage)}
-.tag--1{top:25%; right:10px; --din:.45s; --dfl:1.15s}  .tag--1::before{left:-16px}
-.tag--2{top:39%; left:10px; --din:.62s; --dfl:1.32s}   .tag--2::before{right:-16px}
+.tag--1{top:30%; right:10px; --din:.45s; --dfl:1.15s}  .tag--1::before{left:-16px}
+.tag--2{top:43%; left:10px; --din:.62s; --dfl:1.32s}   .tag--2::before{right:-16px}
 .tag--3{top:56%; right:10px; --din:.79s; --dfl:1.49s}  .tag--3::before{left:-16px}
-.tag--4{top:72%; left:10px; --din:.96s; --dfl:1.66s}   .tag--4::before{right:-16px}
-.tag--5{top:86%; right:10px; --din:1.13s; --dfl:1.83s} .tag--5::before{left:-16px}
+.tag--4{top:73%; left:10px; --din:.96s; --dfl:1.66s}   .tag--4::before{right:-16px}
+.tag--5{top:88%; right:10px; --din:1.13s; --dfl:1.83s} .tag--5::before{left:-16px}
 @keyframes tagIn{from{opacity:0; transform:translateY(14px) scale(.92)} to{opacity:1; transform:none}}
 @keyframes tagFloat{0%,100%{opacity:1; transform:translateY(0)} 50%{opacity:1; transform:translateY(-7px)}}
 @keyframes dotPulse{0%{box-shadow:0 0 0 0 rgba(95,114,72,.45)} 70%,100%{box-shadow:0 0 0 9px rgba(95,114,72,0)}}
-@media(min-width:560px){.hero__media{margin-left:0;margin-right:0} .tag--2,.tag--4{left:0} .tag--1,.tag--3,.tag--5{right:0}}
-@media(min-width:980px){.tag--2,.tag--4{left:-38px} .tag--1,.tag--3,.tag--5{right:-38px}}
+@media(min-width:560px){.hero__media{margin-left:0;margin-right:0}
+  .tag--2,.tag--4{left:auto} .tag--1,.tag--3,.tag--5{right:auto}
+  .tag--1{left:calc(64% + 14px)} .tag--3{left:calc(66% + 14px)} .tag--5{left:calc(68% + 14px)}
+  .tag--2{right:calc(67% + 14px)} .tag--4{right:calc(69% + 14px)}}
 @media(max-width:400px){.tag b{font-size:.715rem; padding:7px 12px}}
 @media(min-width:980px){
   .hero__grid{grid-template-columns:1.05fr .95fr; align-items:end; gap:40px}
@@ -926,7 +940,7 @@ body{padding-bottom:0}
           data-leads-form
           data-lang="sk"
           data-submitButtonText="REZERVOVAŤ"
-          data-thankYouPage="https://bezcelulitidy.sk/thanks"
+          data-thankYouPage="https://bodyreshape.sk/thanks"
           data-cssFile="https://bodyreshape.sk/form.css">
         </div>
       </div>
