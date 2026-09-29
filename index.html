@@ -1183,6 +1183,20 @@ body{padding-bottom:0}
   var VIDEO_URL = "https://www.youtube.com/embed/GpcmjQk3Zs0?autoplay=1&rel=0&playsinline=1";
 
   var d = document;
+
+  /* ---- Sledovanie: klik na CTA tlačidlo = Lead (Potenciálny zákazník), raz za načítanie stránky ---- */
+  var ctaSent = false;
+  d_cta();
+  function d_cta(){
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('.js-cta');
+      if (!a || ctaSent) return;
+      ctaSent = true;
+      var pos = a.getAttribute('data-cta') || '';
+      try { if (window.fbq) fbq('track', 'Lead', {content_name: 'Body Reshape', cta_position: pos}); } catch(_){}
+      try { if (window.gtag) gtag('event', 'cta_click', {cta_position: pos}); } catch(_){}
+    });
+  }
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function(s,c){return (c||d).querySelector(s)};
   var $$ = function(s,c){return Array.prototype.slice.call((c||d).querySelectorAll(s))};
