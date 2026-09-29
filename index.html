@@ -352,7 +352,7 @@ body.lb-open{overflow:hidden}
 
 /* ---------- Video ---------- */
 .vid{max-width:430px; margin:0 auto; position:relative; border-radius:var(--r-l); overflow:hidden; box-shadow:var(--shadow-l); background:#2B3423; cursor:pointer; border:0; padding:0; display:block; width:100%}
-.vid img{width:100%; aspect-ratio:4/5; object-fit:cover; transition:transform .6s cubic-bezier(.2,.8,.3,1), filter .4s}
+.vid img{width:100%; aspect-ratio:9/16; object-fit:cover; transition:transform .6s cubic-bezier(.2,.8,.3,1), filter .4s}
 .vid::after{content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(20,26,15,.55),rgba(20,26,15,.05) 55%)}
 .vid:hover img{transform:scale(1.05)}
 .vid__play{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; z-index:2}
@@ -870,7 +870,7 @@ body{padding-bottom:0}
 
     <!-- PLACEHOLDER: po kliknutí sa nahradí prehrávačom. Zadaj URL videa v <script> nižšie (VIDEO_URL). -->
     <button class="vid rv" id="vidBtn" aria-label="Prehrať video o priebehu ošetrenia">
-      <img src="img/video-thumb.webp" width="760" height="950" alt="Ošetrenie na klinike NUTRIADAPT" loading="lazy" decoding="async">
+      <img src="img/video-thumb.webp" width="500" height="887" alt="Ošetrenie na klinike NUTRIADAPT" loading="lazy" decoding="async">
       <span class="vid__play" aria-hidden="true"><i></i></span>
       <span class="vid__cap"><b>Priebeh ošetrenia</b><span>1:12 · z kliniky NUTRIADAPT</span></span>
     </button>
@@ -881,12 +881,12 @@ body{padding-bottom:0}
   </div>
 </section>
 
-<!-- ============ NIE SME BEAUTY SALÓN ============ -->
+<!-- ============ SME NUTRIADAPT ============ -->
 <section class="stats" id="nutriadapt">
   <div class="wrap">
     <div class="rv">
       <svg class="mark" viewBox="0 0 134 134" aria-hidden="true"><circle cx="22.2" cy="22.2" r="22.2" fill="#4FA9E0"/><circle cx="111.4" cy="22.2" r="22.2" fill="#7FA3D8"/><circle cx="66.6" cy="66.4" r="11.5" fill="#4FA9E0"/><circle cx="22.2" cy="111.2" r="11.5" fill="#57D3E2"/><circle cx="111.4" cy="111.2" r="22.5" fill="#4FA9E0"/></svg>
-      <h2>Nie sme beauty salón. <em>Sme NUTRIADAPT.</em></h2>
+      <h2>Sme NUTRIADAPT. <em>Nutrition &amp; Beauty Clinic.</em></h2>
     </div>
     <div class="stats__grid">
       <div class="stat stat--wide rv">
@@ -958,7 +958,7 @@ body{padding-bottom:0}
   <div class="wrap">
     <div class="sec-head rv">
       <p class="eyebrow">Prečo si vyberajú práve nás</p>
-      <h2>Bezpečne, <em>bez ihiel a skalpela</em></h2>
+      <h2>Šetrne, <em>bezpečne a s odbornou starostlivosťou</em></h2>
       <p class="lead">Tri dôvody, ktoré klientky uvádzajú najčastejšie, keď sa pýtame, prečo si vybrali práve nás.</p>
     </div>
 
@@ -966,7 +966,7 @@ body{padding-bottom:0}
       <article class="card rv">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
         <h3>Bez rekonvalescencie</h3>
-        <p>Neinvazívne ošetrenie bez ihiel a bez skalpela. Po procedúre pokračujete v bežnom dni.</p>
+        <p>Šetrné neinvazívne ošetrenie. Po procedúre pokračujete v bežnom dni.</p>
       </article>
       <article class="card rv">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg></span>
@@ -1146,7 +1146,7 @@ body{padding-bottom:0}
 <footer class="ftr">
   <div class="wrap ftr__in">
     <img class="ftr__logo" src="img/logo_white.webp" width="272" height="47" alt="NUTRIADAPT — Nutrition &amp; Beauty Clinic" loading="lazy" decoding="async">
-    <h2>Nemusíte sa skrývať, <em>aby ste sa cítili dobre</em></h2>
+    <h2>Vaše ciele. <em>Naša odbornosť.</em></h2>
     <a href="#rezervacia" class="btn btn--lg js-cta" data-cta="footer">Rezervovať termín <span class="ar" aria-hidden="true">&rarr;</span></a>
     <div class="ftr__meta">
       <p style="margin:0">Procedúra Body Reshape je dostupná na 13 z 20 pobočiek <strong>NUTRIADAPT</strong> po celom Slovensku.</p>
